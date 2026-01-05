@@ -58,13 +58,16 @@ a { text-decoration: none; }
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: #fff;
-    height: 100vh;
+    /* CHANGED: Use min-height so content isn't cut on small phones */
+    min-height: 100vh; 
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    /* REMOVED: overflow: hidden; (This was cutting off content) */
+    padding: 80px 0; /* Adds breathing room top/bottom */
 }
 
 /* Optional Overlay pattern for texture */
@@ -383,4 +386,12 @@ a { text-decoration: none; }
     .achievements-grid { grid-template-columns: 1fr; }
     .project-content { text-align: center; }
     .btn-link { display: inline-block; margin: 10px; }
+
+    /* --- ADDED FIX FOR BUTTONS --- */
+    .hero-btns .btn {
+        display: block;       /* Stacks buttons vertically */
+        margin: 15px auto;    /* Adds 15px space between them */
+        width: 80%;           /* Makes them nice and wide on mobile */
+        max-width: 300px;
+    }
 }
